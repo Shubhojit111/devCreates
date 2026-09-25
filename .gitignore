@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+dist/
+build/
+
+# Generated preview + bundles (run npm run build / build:offline to regenerate)
+dev-creates-preview.html
+dev-creates-nextjs.zip
+
+# Env files
+.env
+.env*.local
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc workspace noise
+.sudo_as_admin_successful
