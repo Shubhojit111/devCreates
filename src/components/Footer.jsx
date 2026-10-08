@@ -34,12 +34,12 @@ export function Footer() {
     <footer id="contact" className="bg-black text-cream">
       <div className="px-5 pt-20 lg:px-10 lg:pt-28">
         <Reveal>
-          <p className="text-[14px] leading-[1.4] text-cream/50">Have a project in mind?</p>
+          <p className="text-[14px] leading-[1.4] text-cream/50">Websites & SaaS for growing businesses</p>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="mt-8 flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
-            <h2 className="max-w-[640px] font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.02em] text-cream">
-              Get in touch today and turn your vision into an experience your audience remembers.
+            <h2 className="max-w-[680px] font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.02em] text-cream">
+              Get a website or SaaS product that brings enquiries, not just likes.
             </h2>
             <div className="flex flex-col items-start gap-4">
               <Button href={site.email ? `mailto:${site.email}` : site.contactHref} variant="white">
@@ -58,19 +58,19 @@ export function Footer() {
         <div className="mt-16 grid gap-12 border-t border-cream/15 pt-12 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
           <div>
             <img src="/brand/logo.svg" alt="Dev Creates" className="h-[30px] w-auto" />
-            <p className="mt-5 max-w-[240px] text-[14px] leading-[1.4] text-cream/50">
-              Every brand touchpoint, owned with intent — consistency, trust and positioning across every channel.
+            <p className="mt-5 max-w-[260px] text-[14px] leading-[1.5] text-cream/50">
+              SEO-ready websites, online stores and SaaS products — designed, built and launched for growing businesses.
             </p>
-            <p className="mt-5 text-[14px] text-cream/40">Remote — worldwide</p>
+            <p className="mt-5 text-[14px] text-cream/40">Based in Kolkata, India — serving businesses across India</p>
           </div>
           <FooterCol title="Services" links={services.map((s) => ({ label: s.title, href: `/services/#${s.id}` }))} />
           <FooterCol
             title="Work"
             links={[
-              { label: 'Our projects', href: '/work/' },
-              { label: 'Kinode', href: '/work/#kinode' },
-              { label: 'Dial', href: '/work/#dial' },
-              { label: 'Rampy App', href: '/work/#rampy' },
+              { label: 'All work + pricing', href: '/work/' },
+              { label: 'Creamy — live site', href: 'https://creamy-five.vercel.app/' },
+              { label: 'Hostzuno SaaS', href: '/work/#hostzuno' },
+              { label: 'Dune Store', href: '/work/#dune' },
             ]}
           />
           <div>
@@ -84,6 +84,11 @@ export function Footer() {
               <li>
                 <a href="/contact/" className="font-display text-[16px] text-cream/80 transition-colors hover:text-cream">
                   Contact
+                </a>
+              </li>
+              <li>
+                <a href="/pricing/" className="font-display text-[16px] text-cream/80 transition-colors hover:text-cream">
+                  Pricing
                 </a>
               </li>
             </ul>

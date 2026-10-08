@@ -43,7 +43,7 @@ export function Navbar() {
             />
           </a>
 
-          <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
             {navLinks.map((l) => (
               <a
                 key={l.label}

@@ -8,6 +8,7 @@ import { Home } from './views/Home';
 import { About } from './views/About';
 import { ServicesPage } from './views/ServicesPage';
 import { WorkPage } from './views/WorkPage';
+import { PricingPage } from './views/PricingPage';
 import { Contact } from './views/Contact';
 
 const routes = {
@@ -15,6 +16,7 @@ const routes = {
   '/about': About,
   '/services': ServicesPage,
   '/work': WorkPage,
+  '/pricing': PricingPage,
   '/contact': Contact,
 };
 

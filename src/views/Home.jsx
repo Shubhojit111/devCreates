@@ -2,9 +2,12 @@
 
 import { useState } from 'react';
 import { Hero } from '../components/Hero';
-import { Services } from '../components/Services';
 import { Marquee } from '../components/Marquee';
+import { Services } from '../components/Services';
+import { Process } from '../components/Process';
 import { Work } from '../components/Work';
+import { WhyUs } from '../components/WhyUs';
+import { PricingTeaser } from '../components/PricingTeaser';
 import { BookInFourTaps } from '../components/BookInFourTaps';
 import { Faq } from '../components/Faq';
 
@@ -19,9 +22,12 @@ export function Home() {
   return (
     <>
       <Hero />
-      <Services onSelect={handleServiceSelect} />
       <Marquee />
-      <Work />
+      <Services onSelect={handleServiceSelect} />
+      <Process />
+      <Work limit={4} />
+      <WhyUs />
+      <PricingTeaser />
       <BookInFourTaps prefillService={prefill} />
       <Faq />
     </>

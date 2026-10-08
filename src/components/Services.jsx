@@ -5,52 +5,57 @@ import { services } from '../data/content';
 import { Reveal } from './ui/Reveal';
 
 export function Services({ onSelect }) {
+  const select = (id) => {
+    if (typeof onSelect === 'function') onSelect(id);
+    else document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
-    <section id="services" className="bg-cream px-5 pt-24 lg:px-10 lg:pt-32">
-      {/* Small right-aligned label, as on the reference */}
-      <Reveal className="ml-auto max-w-[300px]">
-        <p className="text-right text-[14px] leading-[1.4] text-ink">
-          Tailored solutions designed
-          <br />
-          to elevate your brand
-          <br />
-          and drive results
-        </p>
-      </Reveal>
-
-      {/* Big centred display line */}
-      <div className="mt-10 flex justify-center lg:mt-14">
-        <Reveal>
-          <h2 className="text-center font-display uppercase leading-[0.8] tracking-[-0.04em] text-ink">
-            <span className="block text-[clamp(2.75rem,5.5vw,4rem)]">Creative Services</span>
+    <section id="services" className="bg-cream px-5 pt-20 lg:px-10 lg:pt-28">
+      <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+        <Reveal className="lg:col-span-8">
+          <p className="text-[13px] uppercase tracking-[0.14em] text-ash">What we do for businesses</p>
+          <h2 className="mt-4 font-display uppercase leading-[0.85] tracking-[-0.04em] text-ink">
+            <span className="block text-[clamp(2.4rem,5vw,4rem)]">Services with</span>
+            <span className="block text-[clamp(2.4rem,5vw,4rem)] text-coral">fixed pricing.</span>
           </h2>
+        </Reveal>
+        <Reveal delay={0.08} className="lg:col-span-4">
+          <p className="text-[14px] leading-[1.55] text-ash lg:ml-auto lg:max-w-[280px] lg:text-right">
+            No vague "design packages". Pick the outcome you need — website, store, SaaS or ongoing growth — and get
+            a launch date in writing.
+          </p>
         </Reveal>
       </div>
 
-      <div className="mt-16 lg:mt-24">
+      <div className="mt-12 lg:mt-16">
         {services.map((s, i) => (
-          <Reveal key={s.id} delay={i * 0.05}>
+          <Reveal key={s.id} delay={i * 0.04}>
             <button
-              onClick={() => onSelect(s.id)}
-              className="group relative block w-full border-t border-line py-7 text-left lg:py-9"
-              aria-label={`${s.title} — book this service`}
+              onClick={() => select(s.id)}
+              className="group relative block w-full border-t border-line py-7 text-left lg:py-8"
+              aria-label={`${s.title} ${s.price} — book this service`}
             >
-              <span className="grid grid-cols-12 items-baseline gap-x-4 gap-y-3">
+              <span className="grid grid-cols-12 items-start gap-x-4 gap-y-3">
                 <span className="col-span-1 hidden text-[14px] text-fog lg:block">{s.num}</span>
-                <span className="col-span-11 font-display text-[clamp(1.75rem,2.4vw,2rem)] leading-none tracking-[-0.06em] text-black transition-colors duration-300 group-hover:text-coral lg:col-span-6">
-                  {s.title}
+                <span className="col-span-12 lg:col-span-5">
+                  <span className="block font-display text-[clamp(1.6rem,2.4vw,2.1rem)] leading-none tracking-[-0.04em] text-black transition-colors duration-300 group-hover:text-coral">
+                    {s.title}
+                  </span>
+                  <span className="mt-2 flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-ink px-3 py-1 text-[12px] font-semibold text-cream">{s.price}</span>
+                    <span className="rounded-full border border-line px-3 py-1 text-[12px] text-ash">{s.timeline}</span>
+                  </span>
                 </span>
-                <span className="col-span-11 col-start-2 text-[15px] leading-[1.35] text-slate/[0.68] lg:col-span-4 lg:col-start-8 lg:row-start-1 lg:text-right">
-                  {s.desc}
+                <span className="col-span-10 text-[14px] leading-[1.55] text-slate/[0.72] lg:col-span-5">
+                  <span className="block font-medium text-ink/80">{s.short}</span>
+                  <span className="mt-1 block">{s.desc}</span>
                 </span>
-                <span className="col-span-12 mt-1 flex justify-end lg:col-span-1 lg:col-start-12 lg:mt-0 lg:row-start-1">
-                  <ArrowUpRight
-                    size={20}
-                    className="text-fog transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-coral"
-                  />
+                <span className="col-span-2 flex justify-end lg:col-span-1">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line transition-all duration-300 group-hover:border-coral group-hover:bg-coral group-hover:text-cream">
+                    <ArrowUpRight size={18} />
+                  </span>
                 </span>
               </span>
-              {/* underline sweep */}
               <span
                 aria-hidden
                 className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-slate transition-transform duration-500 ease-out group-hover:scale-x-100"
@@ -60,6 +65,15 @@ export function Services({ onSelect }) {
         ))}
         <div className="border-t border-line" />
       </div>
+
+      <Reveal className="mt-8">
+        <p className="text-center text-[13px] text-ash">
+          Tap any service to pre-fill the booking form below ↓ · Full price menu on{' '}
+          <a href="/pricing/" className="font-medium text-ink underline underline-offset-4 hover:text-coral">
+            Pricing
+          </a>
+        </p>
+      </Reveal>
     </section>
   );
 }
